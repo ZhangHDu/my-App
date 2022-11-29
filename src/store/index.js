@@ -5,7 +5,7 @@ export const useStore = defineStore(
         state:()=>{
             return { 
                 appType:0,
-                
+                thisPath:'Index'
             }
         },
        actions:{

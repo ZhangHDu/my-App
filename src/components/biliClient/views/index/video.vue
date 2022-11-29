@@ -1,5 +1,5 @@
 <template>
-  首页
+  追番
 </template>
 
 <script>

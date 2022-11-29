@@ -8,20 +8,32 @@
         </div>
         <div class="imgIcon">
             <div class="item"  @click="to('Index')">
-                <img src="../../../assets/images/homeIcon/home.png" v-show="thisPath!=='Index'" alt="">
-                <img src="../../../assets/images/homeIcon/home2.png" v-show="thisPath==='Index'" alt="">
+                <svg class="icon" aria-hidden="true" v-show="thisPath!=='Index'">
+                    <use xlink:href="#icon-home-smile-fill"></use>
+                </svg>
+                <svg class="icon" aria-hidden="true" v-show="thisPath==='Index'">
+                    <use xlink:href="#icon-home-smile-fill-copy"></use>
+                </svg>
                 <p v-show="thisPath!=='Index'">首页</p>
                 <p style="color:#ed456d;" v-show="thisPath==='Index'">首页</p>
             </div>
             <div class="item" @click="to('Dynamic')">
-                <img  src="../../../assets/images/homeIcon/风车.png" v-show="thisPath!=='Dynamic'" alt="">
-                <img src="../../../assets/images/homeIcon/风车2.png" v-show="thisPath==='Dynamic'" alt="">
+                <svg class="icon" aria-hidden="true" v-show="thisPath!=='Dynamic'" >
+                    <use xlink:href="#icon-fengche"></use>
+                </svg>
+                <svg class="icon" aria-hidden="true" v-show="thisPath==='Dynamic'">
+                    <use xlink:href="#icon-fengche-copy"></use>
+                </svg>
                 <p v-show="thisPath!=='Dynamic'">动态</p>
                 <p style="color:#ed456d;" v-show="thisPath==='Dynamic'">动态</p>
             </div>
             <div class="item" @click="to('User')">
-                <img src="../../../assets/images/homeIcon/bili.png" v-show="thisPath!=='User'" alt="">
-                <img src="../../../assets/images/homeIcon/bili.png" v-show="thisPath==='User'" alt="">
+                <svg class="icon" aria-hidden="true" v-show="thisPath!=='User'" >
+                    <use xlink:href="#icon-bilibili-line"></use>
+                </svg>
+                <svg class="icon" aria-hidden="true" v-show="thisPath==='User'">
+                    <use xlink:href="#icon-bilibili-line-copy"></use>
+                </svg>
                 <p v-show="thisPath!=='User'">我的</p>
                 <p style="color:#ed456d;" v-show="thisPath==='User'">我的</p>
             </div>
@@ -30,16 +42,22 @@
     <div class="bottom">
         <div class="imgIcon">
             <div class="item">
-                <img src="../../../assets/images/homeIcon/home.png" alt="">
+                <div class="head"></div>
             </div>
             <div class="item">
-                <img src="../../../assets/images/homeIcon/home.png" alt="">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-youjian"></use>
+                </svg>
             </div>
             <div class="item">
-                <img src="../../../assets/images/homeIcon/风车.png" alt="">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-yueliang"></use>
+                </svg>
             </div>
             <div class="item">
-                <img src="../../../assets/images/homeIcon/bili.png" alt="">
+                <svg class="icon" aria-hidden="true">
+                    <use xlink:href="#icon-shezhi"></use>
+                </svg>
             </div>
         </div>
     </div>
@@ -53,8 +71,8 @@ import {useRouter} from 'vue-router'
 import {ref,onMounted} from 'vue'
 const store = useStore()
 const router = useRouter()
-let {appType} = storeToRefs(store)
-const thisPath = ref('Index')
+let {appType,thisPath} = storeToRefs(store)
+// const thisPath = ref('Index')
 // 关闭软件
 const off = function(){
     appType.value = 0
@@ -65,6 +83,7 @@ const to = function(path:string){
     // 保存当前路由路径
     thisPath.value = path
 }
+
 onMounted(():void=>{
     // 挂载之后路由跳转至首页
     router.push('/Index')
@@ -112,9 +131,11 @@ onMounted(():void=>{
                 align-items: center;
                 font-size: 12px;
                 color: #5a5a5a;
-                img{
+                .icon{
                     width: 27px;
+                    height: 27px;
                 }
+
                 margin-bottom: 29px;
             }
         }
@@ -122,9 +143,16 @@ onMounted(():void=>{
     .bottom{
        
         .imgIcon{
-            
             .item{
                 margin: 15px 0;
+                display: flex;
+                justify-content: center;
+                .head{
+                    width: 25px;
+                    height: 25px;
+                    background-color: red;
+                    border-radius: 50%;
+                }
             }
         }
     }

@@ -12,7 +12,7 @@ const router = createRouter({
         {
             path:'/Index',
             name:'index',
-            component:()=>import(/* webpackChunkName: "nucleic" */ '../components/biliClient/views/index.vue'),
+            component:()=>import(/* webpackChunkName: "nucleic" */ '../components/biliClient/views/index/index.vue'),
         },
         {
             path:'/User',
@@ -22,7 +22,32 @@ const router = createRouter({
         {
             path:'/Dynamic',
             name:'dynamic',
-            component:()=>import(/* webpackChunkName: "nucleic" */ '../components/biliClient/views/dynamic.vue'),
+            component:()=>import(/* webpackChunkName: "nucleic" */ '../components/biliClient/views/dynamic/dynamic.vue'),
+        },
+        {
+          path:'/Hot',
+          name:'hot',
+          component:()=>import(/* webpackChunkName: "nucleic" */ '../components/biliClient/views/index/hot.vue'),
+        },
+        {
+          path:'/Live',
+          name:'live',
+          component:()=>import(/* webpackChunkName: "nucleic" */ '../components/biliClient/views/index/live.vue'),
+        },
+        {
+          path:'/Movie',
+          name:'movie',
+          component:()=>import(/* webpackChunkName: "nucleic" */ '../components/biliClient/views/index/movie.vue'),
+        },
+        {
+          path:'/Video',
+          name:'video',
+          component:()=>import(/* webpackChunkName: "nucleic" */ '../components/biliClient/views/index/video.vue'),
+        },
+        {
+          path:'/OnlyVideos',
+          name:'onlyVideos',
+          component:()=>import(/* webpackChunkName: "nucleic" */ '../components/biliClient/views/dynamic/onlyVideos.vue'),
         }
     ]
     }
